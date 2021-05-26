@@ -1,0 +1,12 @@
+section#how-it-works {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+#how-it-works > div {
+    flex-basis: 50%;
+}
+#how-it-works > .preview {
+    background: white;
+}

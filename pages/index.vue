@@ -12,8 +12,12 @@
         </div>
       </div>
     </section>
-    <section id="how-it-works"></section>
+    <section id="how-it-works">
+      <div class="preview"></div>
+      <div class="steps"></div>
+    </section>
     <section id="cta"></section>
+    <section id="pricing"></section>
     <section id="faqs"></section>
     <section id="footer"></section>
   </main>

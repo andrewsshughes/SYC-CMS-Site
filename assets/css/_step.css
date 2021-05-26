@@ -2,14 +2,14 @@
     padding: 20px;
     background: white;
     border-radius: 10px;
-    max-width: 660px;
+    max-width: 600px;
     margin-left: 60px;
     width: calc(100% - 120px);
     transform: translateY(-50%);
     margin-bottom: 25vh;
 }
 .step-card:last-of-type {
-    margin-bottom: 40vh;
+    margin-bottom: 250px;
 }
 .step-card h2 {
     font-family: 'Cera Pro';

@@ -13,7 +13,12 @@
       </div>
     </section>
     <section id="how-it-works">
-      <div class="preview"></div>
+      <div class="preview">
+        <div :class="{ fixed: fixed }" class="screen-mock">
+          <img src="/images/mac-mock.png" class="mac-mock" />
+          <img v-for="(step, index) in steps" :key="index" :data-step-id="index" :src="step.preview" />
+        </div>
+      </div>
       <div class="steps">
         <div class="step-card" v-for="(step, index) in steps" :key="index" :data-step-id="index">
           <h2>{{ step.title }}</h2>
@@ -35,6 +40,24 @@ export default {
 
     return {
       steps,
+      fixed: false,
+    }
+  },
+  methods: {
+    fixScreen: function () {
+      let scrollT = document.documentElement.scrollTop
+      let contents = document.querySelector('#cliff > .contents')
+      if (scrollT > contents.offsetTop) {
+        this.fixed = true
+      } else {
+        this.fixed = false
+      }
+    },
+  },
+  mounted() {
+    this.fixScreen()
+    document.onscroll = (evt) => {
+      this.fixScreen()
     }
   },
 }

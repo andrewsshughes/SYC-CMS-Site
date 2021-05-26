@@ -14,3 +14,30 @@ section#how-it-works {
 #how-it-works > .steps {
     padding-top: 50vh;
 } 
+.screen-mock {
+    width: 50%;
+    margin-left: auto;
+    max-width: 800px;
+    position: fixed;
+    bottom: 50px;
+    left: 50vw;
+    transform: translate(-50%, 0);
+    z-index: 1000;
+    transition: 250ms ease-in-out;
+    max-height: calc(80vh - 50px);
+}
+.screen-mock.fixed {
+    left: 50%;
+    transform: translate(calc(-100% - 60px), 0);
+    max-width: 600px;
+}
+.screen-mock .mac-mock {
+    width: 100%;
+    object-fit: contain;
+}
+.screen-mock img:not(.mac-mock){
+    position: absolute;
+    left: 2.30%;
+    width: 96%;
+    top: 2.6%;
+}

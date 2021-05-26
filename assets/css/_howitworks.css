@@ -15,30 +15,35 @@ section#how-it-works {
     padding-top: 50vh;
 } 
 .screen-mock {
-    width: 50%;
     margin-left: auto;
-    max-width: 800px;
-    max-height: 35vh;
     position: fixed;
-    bottom: 50px;
+    bottom: 5vh;
     left: 50vw;
     transform: translate(-50%, 0);
     z-index: 1000;
-    transition: 250ms ease-in-out;
-    max-height: calc(80vh - 50px);
-}
-.screen-mock.fixed {
-    left: 50%;
-    transform: translate(calc(-100% - 60px), -50%);
-    max-width: 600px;
+    transition: 150ms ease-in-out;
+    max-width: 800px;
+    max-height: calc(55vh - 210px);
+    aspect-ratio: 1234/1040;
 }
 .screen-mock .mac-mock {
     width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 .screen-mock img:not(.mac-mock){
     position: absolute;
-    left: 2.30%;
+    left: 0%;
+    top: 0%;
+    aspect-ratio: 16/9;
     width: 96%;
-    top: 2.6%;
+    margin-left: 2%;
+    top: 2.5%
+}
+.screen-mock.fixed {
+    transform: translate(calc(-100% - 60px), 50%);
+    max-width: 600px;
+    width: calc(50vw - 120px);
+    max-height: none;
+    bottom: 50vh;
 }

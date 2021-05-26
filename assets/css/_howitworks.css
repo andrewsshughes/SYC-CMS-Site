@@ -47,7 +47,6 @@ section#how-it-works {
     margin-left: 2%;
     top: 2.5%;
     overflow: hidden;
-    background: red;
 }
 .screen-mock .screen img.up {
     transform: translateY(-100%);

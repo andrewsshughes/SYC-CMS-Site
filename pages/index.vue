@@ -14,26 +14,37 @@
     </section>
     <section id="how-it-works">
       <div class="preview">
-        <div :class="{ fixed: fixed }" class="screen-mock">
+        <div :class="{ fixed: fixed, hide: !showPreview }" class="screen-mock">
           <img src="/images/mac-mock.png" class="mac-mock" />
-          <img v-for="(step, index) in steps" :key="index" :data-step-id="index" :src="step.preview" />
+          <div class="screen">
+            <img
+              :class="{ down: index > focusIndex, up: index < focusIndex }"
+              v-for="(step, index) in steps"
+              :key="index"
+              :data-step-id="index"
+              :src="step.preview"
+            />
+          </div>
         </div>
       </div>
       <div class="steps">
         <div
-          :class="{ focus: index == focusIndex, down: index > focusIndex, up: index < focusIndex }"
+          :class="{ focus: index == focusIndex }"
           class="step-card"
           v-for="(step, index) in steps"
           :key="index"
           :data-step-id="index"
+          @click.stop.prevent="stepScroll($event, index)"
         >
           <h2>{{ step.title }}</h2>
           <p>{{ step.content }}</p>
         </div>
       </div>
     </section>
-    <section id="cta"></section>
-    <section id="pricing"></section>
+    <section id="pricing">
+      <div class="details"></div>
+      <div class="breakdown"></div>
+    </section>
     <section id="faqs"></section>
     <section id="footer"></section>
   </main>
@@ -48,6 +59,7 @@ export default {
       steps,
       fixed: false,
       focusIndex: null,
+      showPreview: true,
     }
   },
   methods: {
@@ -75,13 +87,34 @@ export default {
       })
       this.focusIndex == !found ? null : this.focusIndex
     },
+    stepScroll(evt, index) {
+      let step = document.querySelectorAll('.step-card')[index]
+      window.scrollTo({
+        top: step.offsetTop - Math.floor(document.documentElement.clientHeight / 2) + Math.floor(step.clientHeight / 2),
+        left: 0,
+        behavior: 'smooth',
+      })
+    },
+    togglePreview() {
+      let scrollT = document.documentElement.scrollTop
+      let preview = document.querySelector('#how-it-works > .preview')
+      let previewBottom = preview.offsetTop + preview.clientHeight
+      let marker = previewBottom - Math.floor(document.documentElement.clientHeight * 0.9)
+      if (scrollT > marker) {
+        this.showPreview = false
+      } else {
+        this.showPreview = true
+      }
+    },
   },
   mounted() {
     this.fixScreen()
     this.updateFocusedIndex()
+    this.togglePreview()
     document.onscroll = (evt) => {
       this.fixScreen()
       this.updateFocusedIndex()
+      this.togglePreview()
     }
   },
 }

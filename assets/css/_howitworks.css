@@ -25,6 +25,10 @@ section#how-it-works {
     max-width: 800px;
     max-height: calc(55vh - 210px);
     aspect-ratio: 1234/1040;
+    opacity: 1;
+}
+.screen-mock.hide {
+    opacity: 0;
 }
 .screen-mock .mac-mock {
     width: 100%;
@@ -32,14 +36,29 @@ section#how-it-works {
     object-fit: contain;
     max-height: calc(55vh - 210px);
 }
-.screen-mock img:not(.mac-mock){
+.screen-mock .screen{
     position: absolute;
     left: 0%;
     top: 0%;
     aspect-ratio: 16/9;
     width: 96%;
     margin-left: 2%;
-    top: 2.5%
+    top: 2.5%;
+    overflow: hidden
+}
+.screen-mock .screen img.up {
+    transform: translateY(-100%);
+}
+.screen-mock .screen img.down {
+    transform: translateY(100%);
+}
+.screen-mock .screen img {
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    transition: 500ms ease;
+    transform: translateY(0);
 }
 .screen-mock.fixed {
     transform: translate(calc(-100% - 60px), 50%);

@@ -10,6 +10,7 @@
     user-select: none;
     opacity: 0.25;
     transition: 100ms ease-in-out;
+    cursor: pointer;
 }
 .step-card.focus {
     opacity: 1;

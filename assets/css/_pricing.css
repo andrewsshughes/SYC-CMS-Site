@@ -1,0 +1,15 @@
+section#pricing {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+#pricing > div {
+    flex-basis: 50%;
+}
+#pricing > .details {
+    background: white;
+}
+#pricing > .breakdown {
+    padding-top: 50vh;
+} 

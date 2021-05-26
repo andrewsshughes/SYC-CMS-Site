@@ -14,7 +14,12 @@
     </section>
     <section id="how-it-works">
       <div class="preview"></div>
-      <div class="steps"></div>
+      <div class="steps">
+        <div class="step-card" v-for="(step, index) in steps" :key="index" :data-step-id="index">
+          <h2>{{ step.title }}</h2>
+          <p>{{ step.content }}</p>
+        </div>
+      </div>
     </section>
     <section id="cta"></section>
     <section id="pricing"></section>
@@ -22,3 +27,15 @@
     <section id="footer"></section>
   </main>
 </template>
+
+<script>
+export default {
+  async asyncData({ $content }) {
+    const steps = await $content('steps').fetch()
+
+    return {
+      steps,
+    }
+  },
+}
+</script>

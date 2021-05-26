@@ -4,6 +4,7 @@
 
 /* Components Styling */
 @import "_header.css";
+@import "_step.css";
 
 /* Section Styling */
 @import "_cliff.css";

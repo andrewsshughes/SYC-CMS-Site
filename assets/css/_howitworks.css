@@ -1,7 +1,8 @@
 section#how-it-works {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: row;
+    overflow: hidden;
 }
 
 #how-it-works > div {
@@ -10,3 +11,6 @@ section#how-it-works {
 #how-it-works > .preview {
     background: white;
 }
+#how-it-works > .steps {
+    padding-top: 50vh;
+} 

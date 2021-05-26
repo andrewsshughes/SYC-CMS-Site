@@ -1,13 +1,20 @@
 <template>
   <main>
-    <section class="self-center flex flex-col flex-1 items-center justify-center">
-      <h1 class="title text-center">Nuxt — Tailwind — Netlify CMS</h1>
-      <h2 class="subtitle text-center">Boilerplate</h2>
+    <section id="cliff">
+      <div class="bg-wrap">
+        <div class="bg-fill"></div>
+      </div>
+      <div class="contents">
+        <h1>Let us take care of you,<br />then you can take care of your clients.</h1>
+        <div class="button-set">
+          <div class="btn large secondary">Find out more</div>
+          <div class="btn large">Get in touch</div>
+        </div>
+      </div>
     </section>
-
-    <section class="mt-8">
-      <h3 class="text-primary-600 dark:text-primary-400 max-w-5xl mx-auto">Latest blog post</h3>
-      <posts post-type="blog" :amount="1" />
-    </section>
+    <section id="how-it-works"></section>
+    <section id="cta"></section>
+    <section id="faqs"></section>
+    <section id="footer"></section>
   </main>
 </template>

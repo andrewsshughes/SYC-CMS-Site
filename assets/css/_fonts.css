@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('/fonts/CeraPro-Bold.woff');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('/fonts/CeraPro-Medium.woff');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('/fonts/CeraPro-Regular.woff');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('/fonts/CeraPro-Light.woff');
+    font-weight: 100;
+}

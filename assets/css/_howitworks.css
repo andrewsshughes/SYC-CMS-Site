@@ -44,7 +44,8 @@ section#how-it-works {
     width: 96%;
     margin-left: 2%;
     top: 2.5%;
-    overflow: hidden
+    overflow: hidden;
+    background: red;
 }
 .screen-mock .screen img.up {
     transform: translateY(-100%);

@@ -20,7 +20,13 @@
         </div>
       </div>
       <div class="steps">
-        <div class="step-card" v-for="(step, index) in steps" :key="index" :data-step-id="index">
+        <div
+          :class="{ focus: index == focusIndex, down: index > focusIndex, up: index < focusIndex }"
+          class="step-card"
+          v-for="(step, index) in steps"
+          :key="index"
+          :data-step-id="index"
+        >
           <h2>{{ step.title }}</h2>
           <p>{{ step.content }}</p>
         </div>
@@ -41,6 +47,7 @@ export default {
     return {
       steps,
       fixed: false,
+      focusIndex: null,
     }
   },
   methods: {
@@ -53,11 +60,28 @@ export default {
         this.fixed = false
       }
     },
+    updateFocusedIndex() {
+      let steps = document.querySelectorAll('.step-card')
+      let scrollT = document.documentElement.scrollTop
+      let screenHeight = document.documentElement.clientHeight
+      let target = { low: scrollT + Math.floor(screenHeight * 0.3), high: scrollT + Math.floor(screenHeight * 0.7) }
+
+      let found = false
+      steps.forEach((step) => {
+        if (step.offsetTop > target.low && step.offsetTop < target.high) {
+          this.focusIndex = step.getAttribute('data-step-id')
+          found = true
+        }
+      })
+      this.focusIndex == !found ? null : this.focusIndex
+    },
   },
   mounted() {
     this.fixScreen()
+    this.updateFocusedIndex()
     document.onscroll = (evt) => {
       this.fixScreen()
+      this.updateFocusedIndex()
     }
   },
 }

@@ -7,6 +7,12 @@
     width: calc(100% - 120px);
     transform: translateY(-50%);
     margin-bottom: 25vh;
+    user-select: none;
+    opacity: 0.25;
+    transition: 100ms ease-in-out;
+}
+.step-card.focus {
+    opacity: 1;
 }
 .step-card:last-of-type {
     margin-bottom: 40vh;

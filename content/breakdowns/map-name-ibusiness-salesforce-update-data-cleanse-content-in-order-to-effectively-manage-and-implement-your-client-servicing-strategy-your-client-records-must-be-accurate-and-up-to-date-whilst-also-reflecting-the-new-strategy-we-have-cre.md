@@ -7,5 +7,10 @@ content: >-
 
 
   We will update each client record to contain:
+list:
+  - Individual segmentation (AAA, AA or A)
+  - Review months (Jan-Dec)
+  - All communications (Investor Magazines, Birthday Cards, Christmas Cards, Tax
+    Focus Cards etc)
 type: onetime
 ---

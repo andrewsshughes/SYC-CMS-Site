@@ -128,7 +128,7 @@ export default {
 
       let found = false
       steps.forEach((step) => {
-        if (step.offsetTop > target.low && step.offsetTop < target.high) {
+        if (step.offsetTop < target.high) {
           this.focusIndex = step.getAttribute('data-step-id')
           found = true
         }

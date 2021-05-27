@@ -28,6 +28,9 @@ section#how-it-works {
 .screen-mock.hide {
     opacity: 0;
 }
+.screen-mock.remove {
+    display: none;
+}
 .screen-mock.fixed {
     width: 40%;
     margin-left: 5%;

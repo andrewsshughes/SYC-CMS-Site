@@ -62,7 +62,7 @@ collections:
         options:
           - { label: "One-Time Payment", value: "onetime"}
           - { label: "Ongoing Payment", value: "ongoing"}
-  - label: 'Cost Breakdowns'
+  - label: 'Breakdowns'
       name: 'breakdown'
       folder: 'content/breakdowns'
       create: true

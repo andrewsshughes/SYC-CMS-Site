@@ -71,13 +71,16 @@ section#pricing {
 }
 .price-table .contents {
     box-shadow: 0 0 35px 0 rgba(0,0,0,.15);
-    padding: 20px;
+    padding: 0px 20px;
     border-radius: 10px;
+    transition: 50ms ease-in;
+    overflow: hidden;
 }
 .price-table .contents .heading-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 50px;
 }
 .price-table .contents .heading-row .title {
     font-size: 24px;
@@ -89,4 +92,30 @@ section#pricing {
     color: #008DFF;
     font-family: 'Cera Pro';
     margin-right: 20px;
+}
+.price-table .contents .row {
+    height: 60px;
+    background: #F2F2F2;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Cera Pro';
+    align-items: center;
+}
+.price-table .contents .row.clear{
+    background:#FFFFFF;
+}
+.price-table .contents .row .name {
+    color:#242424;
+    font-size: 18;
+    font-weight: 500;
+}
+.price-table .contents .row .price {
+    margin-right: 20px;
+    font-size: 22px;
+    color: #008DFF;
+    font-weight: 500;
 }

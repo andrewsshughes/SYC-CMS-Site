@@ -57,7 +57,15 @@
               <span class="title">{{ filter == 'ongoing' ? 'Ongoing Payments' : 'One-Time Payments' }}</span>
               <span class="cost">Cost</span>
             </div>
-            <div class="rows"></div>
+            <div
+              v-for="(cost, cIndex) in filteredCosts"
+              :key="cost.name"
+              class="row"
+              :class="{ clear: cIndex % 2 == 1 }"
+            >
+              <span class="name">{{ cost.name }}</span>
+              <span class="price">{{ cost.price }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -139,6 +147,11 @@ export default {
         this.largePreview = true
         this.removePreview = false
       }
+    },
+  },
+  computed: {
+    filteredCosts() {
+      return this.costs.filter((c) => c.type == this.filter)
     },
   },
   mounted() {

@@ -171,6 +171,14 @@ export default {
         this.removePreview = false
       }
     },
+    resizeMock() {
+      let clientHeight = document.documentElement.clientHeight
+      let availableArea = clientHeight - Math.floor(clientHeight * 0.05)
+      let cliffContents = document.querySelector('#cliff .contents')
+      let bottom = cliffContents.offsetTop + cliffContents.clientHeight
+      let target = document.querySelector('.mac-mock')
+      target.setAttribute('style', `max-height: ${availableArea - bottom}px`)
+    },
   },
   computed: {
     filteredCosts() {
@@ -185,6 +193,7 @@ export default {
     this.updateFocusedIndex()
     this.togglePreview()
     this.pricingResize()
+    this.resizeMock()
     document.onscroll = (evt) => {
       this.fixScreen()
       this.updateFocusedIndex()

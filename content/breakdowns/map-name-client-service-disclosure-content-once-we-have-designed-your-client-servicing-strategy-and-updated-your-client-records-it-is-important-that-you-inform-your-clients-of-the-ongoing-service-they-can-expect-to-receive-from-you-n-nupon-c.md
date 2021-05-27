@@ -1,5 +1,5 @@
 ---
-name: Client Service Disclosure
+name: "Client Service Disclosure "
 content: >-
   Once we have designed your Client Servicing Strategy and updated your client
   records, it is important that you inform your clients of the ongoing service

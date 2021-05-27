@@ -9,3 +9,26 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
+.list {
+    font-family: 'Cera Pro';
+    font-size: 18px;
+    color: #242424;
+    list-style: none;
+    padding-left: 20px;
+    margin: 0;
+    margin-top: 15px;
+}
+.list li {
+    margin-bottom: 10px;
+    position: relative;
+}
+.list li:before {
+    content: '';
+    background: #ED0874;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    position: absolute;
+    right: calc(100% + 10px);
+    top: 8px;
+}

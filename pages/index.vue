@@ -75,6 +75,11 @@
           <p v-for="(paragraph, index) in formatContent(breakdown.content)" :key="index">
             {{ paragraph }}
           </p>
+          <ul class="list" v-if="breakdown.list != undefined">
+            <li v-for="(item, iIndex) in breakdown.list" :key="iIndex">
+              {{ item }}
+            </li>
+          </ul>
         </div>
       </div>
     </section>

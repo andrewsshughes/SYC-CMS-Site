@@ -71,6 +71,12 @@ collections:
     fields: 
       - {label: "Product Name", name: "name", widget: "string"}
       - {label: "Product Details", name: "content", widget: "markdown"}
+      - label: "Product Breakdown List"
+        name: "list"
+        widget: "list"
+        allow_add: true
+        summary: "{{fields.content}}"
+        field: {label: "Content", name: "content", widget: "text"}
       - label: "Product Type"
         name: "type"
         widget: "select"

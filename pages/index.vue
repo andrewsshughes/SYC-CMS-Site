@@ -70,9 +70,11 @@
         </div>
       </div>
       <div class="breakdown">
-        <div class="card" v-for="(breakdown, bIndex) in breakdowns" :key="bIndex">
+        <div class="card" v-for="(breakdown, bIndex) in filteredBreakdowns" :key="bIndex">
           <h2>{{ breakdown.name }}</h2>
-          <p>{{ breakdown.content }}</p>
+          <p v-for="(paragraph, index) in formatContent(breakdown.content)" :key="index">
+            {{ paragraph }}
+          </p>
         </div>
       </div>
     </section>
@@ -143,6 +145,10 @@ export default {
       } else {
         this.showPreview = true
       }
+    },
+    formatContent(content) {
+      let array = content.split(/\s\s/g)
+      return array
     },
     pricingResize() {
       let scrollT = document.documentElement.scrollTop

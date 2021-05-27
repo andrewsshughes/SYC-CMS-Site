@@ -62,3 +62,18 @@ collections:
         options:
           - { label: "One-Time Payment", value: "onetime"}
           - { label: "Ongoing Payment", value: "ongoing"}
+  - label: 'Cost Breakdowns'
+      name: 'breakdown'
+      folder: 'content/breakdowns'
+      create: true
+      editor:
+        preview: false
+      fields: 
+        - {label: "Product Name", name: "name", widget: "string"}
+        - {label: "Product Details", name: "content", widget: "text"}
+        - label: "Product Type"
+          name: "type"
+          widget: "select"
+          options:
+            - { label: "One-Time Payment", value: "onetime"}
+            - { label: "Ongoing Payment", value: "ongoing"}

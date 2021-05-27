@@ -86,7 +86,24 @@
         </div>
       </div>
     </section>
-    <section id="faqs"></section>
+    <section id="faqs" :class="{ displayed: !largePreview, loadCards: loadCards }">
+      <div class="questions">
+        <h2
+          v-for="(faq, fIndex) in faqs"
+          :key="fIndex"
+          :data-q-index="fIndex"
+          :class="{ focused: focusQuestion == fIndex }"
+        >
+          {{ faq.question }}
+        </h2>
+      </div>
+      <div class="answers">
+        <div class="card" v-for="(faq, fIndex) in faqs" :key="fIndex" :class="{ focused: focusQuestion == fIndex }">
+          <h2>{{ faq.answer }}</h2>
+          <p>{{ faq.details }}</p>
+        </div>
+      </div>
+    </section>
     <section id="footer"></section>
   </main>
 </template>
@@ -97,17 +114,21 @@ export default {
     const steps = await $content('steps').fetch()
     const costs = await $content('costs').fetch()
     const breakdowns = await $content('breakdowns').fetch()
+    const faqs = await $content('faqs').fetch()
 
     return {
       steps,
       costs,
       breakdowns,
+      faqs,
       fixed: false,
       focusIndex: null,
       showPreview: true,
       removePreview: false,
       largePreview: true,
       filter: 'onetime',
+      loadCards: false,
+      focusQuestion: null,
     }
   },
   methods: {
@@ -179,6 +200,27 @@ export default {
       let target = document.querySelector('.mac-mock')
       target.setAttribute('style', `max-height: ${availableArea - bottom}px`)
     },
+    faqFocus() {
+      let section = document.querySelector('section#faqs')
+      let scrollT = document.documentElement.scrollTop
+      let windowHeight = document.documentElement.clientHeight
+      if (section.offsetTop < scrollT + Math.round(windowHeight * 0.75)) {
+        this.loadCards = true
+      } else {
+        this.loadCards = false
+      }
+      let questions = document.querySelectorAll('.questions h2')
+      let found = false
+      questions.forEach((q) => {
+        if (q.offsetTop < scrollT + Math.floor(windowHeight * 0.6)) {
+          this.focusQuestion = q.getAttribute('data-q-index')
+          found = true
+        }
+      })
+      if (!found) {
+        this.focusQuestion = null
+      }
+    },
   },
   computed: {
     filteredCosts() {
@@ -194,11 +236,13 @@ export default {
     this.togglePreview()
     this.pricingResize()
     this.resizeMock()
+    this.faqFocus()
     document.onscroll = (evt) => {
       this.fixScreen()
       this.updateFocusedIndex()
       this.togglePreview()
       this.pricingResize()
+      this.faqFocus()
     }
   },
 }

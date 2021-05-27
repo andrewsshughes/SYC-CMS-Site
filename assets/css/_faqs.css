@@ -1,0 +1,72 @@
+section#faqs {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    align-items: center;
+}
+#faqs.displayed .questions {
+    flex-basis: 40%;
+}
+#faqs > div {
+    flex-basis: 50%;
+    transition: 100ms ease-in;
+}
+#faqs .questions {
+    background: white;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    padding-top: 25vh;
+    padding-bottom: 25vh;
+    align-items: center;
+}
+#faqs .questions > h2 {
+    font-family: 'Cera Pro';
+    font-size: 24px;
+    color: rgba(0, 143, 255, .25);
+    margin-bottom: 25vh;
+}
+#faqs .questions > h2.focused {
+    color: rgba(0, 143, 255, 1);
+}
+#faqs .answers .card {
+    background: white;
+    border-radius: 10px;;
+}
+#faqs .answers .card {
+    background: white;
+    border-radius: 10px;
+    width: calc(100% - 120px);
+    margin-left: 60px;
+    max-width: 804px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 45px;
+    margin-top: 45px;
+    box-shadow: 0 0 35px 0 rgba(0,0,0,.10);
+    position: fixed;
+    top: 50%;
+    transform:  translateY(-50%);
+    opacity: 0;
+    display: none;
+    transition: 250ms ease-in-out;
+}
+#faqs.loadCards .answers .card {
+    display: block;
+}
+#faqs.loadCards .answers .card.focused {
+    opacity: 1;
+}
+#faqs .answers .card  h2 {
+    font-size: 24px;
+    color: #ED0874;
+    font-family: 'Cera Pro';
+    font-weight: 500;
+    margin: 0;
+}
+#faqs .answers .card p {
+    color: #242424;
+    font-size: 18px;
+    font-family: 'Cera Pro';
+}

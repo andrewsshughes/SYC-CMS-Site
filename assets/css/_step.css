@@ -16,7 +16,7 @@
     opacity: 1;
 }
 .step-card:last-of-type {
-    margin-bottom: 40vh;
+    margin-bottom: 0vh;
 }
 .step-card h2 {
     font-family: 'Cera Pro';

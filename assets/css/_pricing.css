@@ -6,10 +6,87 @@ section#pricing {
 }
 #pricing > div {
     flex-basis: 50%;
+    transition: 100ms ease-in;
 }
 #pricing > .details {
     background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #pricing > .breakdown {
     padding-top: 50vh;
-} 
+}
+#pricing.displayed > .details {
+    flex-basis: 40%;
+}
+#pricing.displayed > .breakdown {
+    flex-basis: 60%;
+}
+#pricing > div > * {
+    opacity: 0;
+    transition: 100ms ease-in;
+}
+#pricing.displayed > div > * {
+    opacity: 1;
+}
+.price-table {
+    width: calc(100% - 120px);
+    max-width: 456px;
+    margin-right: 60px;
+    margin-left: auto;
+}
+.price-table .type-toggle {
+    font-family: 'Cera Pro';
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+.price-table .type-toggle span {
+    color: #C5E5FF;
+    padding-bottom: 3px;
+    margin: 10px;
+    transition: 100ms ease-in;
+    cursor: pointer;
+    position: relative;
+}
+.price-table .type-toggle span:after {
+    position: absolute;
+    width: 70%;
+    content: '';
+    border-top: 1px solid #C5E5FF;
+    left: 15%;
+    top: calc(100% + 3px);
+    transition: 100ms ease-in;
+    height: 0px;
+    background: linear-gradient(#ED0874AA -100%, #ED087400 40%);
+}
+.price-table .type-toggle span.active {
+    color: #ED0874;
+    font-size: 22px;
+}
+.price-table .type-toggle span.active:after {
+    border-top: 2px solid #ED0874;
+    height: 20px;
+}
+.price-table .contents {
+    box-shadow: 0 0 35px 0 rgba(0,0,0,.15);
+    padding: 20px;
+    border-radius: 10px;
+}
+.price-table .contents .heading-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.price-table .contents .heading-row .title {
+    font-size: 24px;
+    color: #ED0874;
+    font-family: 'Cera Pro';
+    font-weight: 500;
+}
+.price-table .contents .heading-row .cost {
+    color: #008DFF;
+    font-family: 'Cera Pro';
+    margin-right: 20px;
+}

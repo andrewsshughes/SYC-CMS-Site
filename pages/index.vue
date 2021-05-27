@@ -69,7 +69,12 @@
           </div>
         </div>
       </div>
-      <div class="breakdown"></div>
+      <div class="breakdown">
+        <div class="card" v-for="(breakdown, bIndex) in breakdowns" :key="bIndex">
+          <h2>{{ breakdown.name }}</h2>
+          <p>{{ breakdown.content }}</p>
+        </div>
+      </div>
     </section>
     <section id="faqs"></section>
     <section id="footer"></section>
@@ -81,10 +86,12 @@ export default {
   async asyncData({ $content }) {
     const steps = await $content('steps').fetch()
     const costs = await $content('costs').fetch()
+    const breakdowns = await $content('breakdowns').fetch()
 
     return {
       steps,
       costs,
+      breakdowns,
       fixed: false,
       focusIndex: null,
       showPreview: true,
@@ -152,6 +159,9 @@ export default {
   computed: {
     filteredCosts() {
       return this.costs.filter((c) => c.type == this.filter)
+    },
+    filteredBreakdowns() {
+      return this.breakdowns.filter((b) => b.type == this.filter)
     },
   },
   mounted() {

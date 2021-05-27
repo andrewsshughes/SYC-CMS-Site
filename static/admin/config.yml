@@ -70,7 +70,7 @@ collections:
       preview: false
     fields: 
       - {label: "Product Name", name: "name", widget: "string"}
-      - {label: "Product Details", name: "content", widget: "text"}
+      - {label: "Product Details", name: "content", widget: "markdown"}
       - label: "Product Type"
         name: "type"
         widget: "select"

@@ -3,6 +3,7 @@ section#pricing {
     display: flex;
     flex-direction: row;
     overflow: hidden;
+    align-items: center;
 }
 #pricing > div {
     flex-basis: 50%;
@@ -13,9 +14,7 @@ section#pricing {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-#pricing > .breakdown {
-    padding-top: 50vh;
+    align-self: stretch;
 }
 #pricing.displayed > .details {
     flex-basis: 40%;
@@ -126,4 +125,28 @@ section#pricing {
 }
 .price-table .contents .row .price > span {
     font-size: 10px;
+}
+#pricing .breakdown .card {
+    background: white;
+    border-radius: 10px;
+    width: calc(100% - 120px);
+    margin-left: 60px;
+    max-width: 744px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 45px;
+    margin-top: 45px;
+    box-shadow: 0 0 35px 0 rgba(0,0,0,.10);
+}
+#pricing .breakdown .card h2 {
+    font-size: 24px;
+    color: #ED0874;
+    font-family: 'Cera Pro';
+    font-weight: 500;
+    margin: 0;
+}
+#pricing .breakdown .card p {
+    color: #242424;
+    font-size: 18px;
+    font-family: 'Cera Pro';
 }

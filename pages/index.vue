@@ -15,15 +15,18 @@
     <section id="how-it-works">
       <div class="preview">
         <div :class="{ fixed: fixed, hide: !showPreview, remove: removePreview }" class="screen-mock">
-          <img src="/images/mac-mock.png" class="mac-mock" />
-          <div class="screen">
-            <img
-              :class="{ down: index > focusIndex, up: index < focusIndex }"
-              v-for="(step, index) in steps"
-              :key="index"
-              :data-step-id="index"
-              :src="step.preview"
-            />
+          <div class="mac-wrap">
+            <img src="/images/mac-mock.png" class="mac-mock" />
+            <div class="screen">
+              <img :class="{ up: focusIndex != null }" src="images/client-list-screen.png" />
+              <img
+                :class="{ down: index > focusIndex || (focusIndex == null && index == 0), up: index < focusIndex }"
+                v-for="(step, index) in steps"
+                :key="index"
+                :data-step-id="index"
+                :src="step.preview"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -130,7 +133,9 @@ export default {
           found = true
         }
       })
-      this.focusIndex == !found ? null : this.focusIndex
+      if (found == false) {
+        this.focusIndex = null
+      }
     },
     stepScroll(evt, index) {
       let step = document.querySelectorAll('.step-card')[index]

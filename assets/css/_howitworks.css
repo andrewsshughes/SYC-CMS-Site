@@ -15,60 +15,53 @@ section#how-it-works {
     padding-top: 50vh;
 } 
 .screen-mock {
-    margin-left: auto;
     position: fixed;
     bottom: 5vh;
-    left: 50vw;
-    transform: translate(-50%, 0);
     z-index: 1000;
     transition: 150ms ease-in-out;
-    max-width: 800px;
-    max-height: calc(55vh - 210px);
-    aspect-ratio: 1234/1040;
     opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 .screen-mock.hide {
     opacity: 0;
 }
-.screen-mock.remove {
-    display: none;
+.screen-mock.fixed {
+    width: 40%;
+    margin-left: 5%;
+    transform: translate(0, 50%);
+    bottom: 50vh;
 }
-.screen-mock .mac-mock {
-    width: 100%;
-    height: 100%;
+.screen-mock .mac-wrap {
+    position: relative;
+}
+.screen-mock .mac-wrap .mac-mock {
+    max-width: 100%;
+    max-height: 60vh;
     object-fit: contain;
-    max-height: calc(55vh - 210px);
 }
-.screen-mock .screen{
+.screen-mock .screen {
     position: absolute;
-    left: 0%;
-    top: 0%;
-    aspect-ratio: 16/9;
-    padding-top: 54%;
-    box-sizing: border-box;
     width: 96%;
-    margin-left: 2%;
-    top: 2.5%;
+    height: 64%;
+    left: 2%;
+    top: 2%;
     overflow: hidden;
+    background: white;
+}
+.screen-mock .screen img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    transform: translateY(0);
+    transition: 250ms ease-in-out;
 }
 .screen-mock .screen img.up {
     transform: translateY(-100%);
 }
-.screen-mock .screen img.down {
+.screen-mock .screen img.down{
     transform: translateY(100%);
-}
-.screen-mock .screen img {
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: absolute;
-    transition: 500ms ease;
-    transform: translateY(0);
-}
-.screen-mock.fixed {
-    transform: translate(calc(-100% - 60px), 50%);
-    max-width: 600px;
-    width: calc(50vw - 120px);
-    max-height: none;
-    bottom: 50vh;
 }

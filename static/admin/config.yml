@@ -83,3 +83,13 @@ collections:
         options:
           - { label: "One-Time Payment", value: "onetime"}
           - { label: "Ongoing Payment", value: "ongoing"}
+  - label: 'FAQs'
+    name: 'faq'
+    folder: 'content/faqs'
+    create: true
+    editor:
+      preview: false
+    fields:
+      - {label: "Question", name: "question", widget: "string"}
+      - {label: "Answer", name: "answer", widget: "string"}
+      - {label: "Details", name: "details", widget: "text"}

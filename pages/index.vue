@@ -64,7 +64,7 @@
               :class="{ clear: cIndex % 2 == 1 }"
             >
               <span class="name">{{ cost.name }}</span>
-              <span class="price">{{ cost.price }}</span>
+              <div class="price">{{ cost.price }}<span v-if="cost.household">Per Household</span></div>
             </div>
           </div>
         </div>

@@ -91,7 +91,8 @@ section#pricing {
 .price-table .contents .heading-row .cost {
     color: #008DFF;
     font-family: 'Cera Pro';
-    margin-right: 20px;
+    text-align: center;
+    flex-basis: 100px;
 }
 .price-table .contents .row {
     height: 60px;
@@ -112,10 +113,17 @@ section#pricing {
     color:#242424;
     font-size: 18;
     font-weight: 500;
+    flex-basis: 50%;
 }
 .price-table .contents .row .price {
-    margin-right: 20px;
     font-size: 22px;
     color: #008DFF;
     font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex-basis: 100px;
+}
+.price-table .contents .row .price > span {
+    font-size: 10px;
 }
